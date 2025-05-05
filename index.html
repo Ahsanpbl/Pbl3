@@ -15,6 +15,9 @@
       padding: 2rem 0;
       text-align: center;
     }
+    .tab-content {
+      margin-top: 2rem;
+    }
     .subscription-plan {
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -42,116 +45,161 @@
     <h1>RecycAI</h1>
     <p>Transform your waste into something useful with AI guidance</p>
   </header>
-  <main class="container my-5">
-    <section class="mb-5">
-      <h2>Submit Your Waste</h2>
-      <form id="waste-form">
-        <div class="mb-3">
-          <label for="waste-image" class="form-label">Upload an image of your waste:</label>
-          <input type="file" class="form-control" id="waste-image" name="waste-image" accept="image/*" />
-        </div>
-        <div class="mb-3">
-          <label for="waste-description" class="form-label">Or describe your waste material:</label>
-          <input type="text" class="form-control" id="waste-description" name="waste-description" placeholder="e.g., plastic bottles, cardboard boxes" />
-        </div>
-        <button type="submit" class="btn btn-success">Get Recycling Instructions</button>
-      </form>
-    </section>
-    <section>
-      <h2>Subscription Plans</h2>
-      <p>Start with a 7-day free trial, then choose a plan that suits you:</p>
-      <div class="row">
-        <div class="col-md-3">
-          <div class="subscription-plan">
-            <h3>Monthly</h3>
-            <p>5 AED per month</p>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input type="hidden" name="cmd" value="_xclick-subscriptions">
-              <input type="hidden" name="business" value="your-paypal-email@example.com">
-              <input type="hidden" name="item_name" value="RecycAI Monthly Subscription">
-              <input type="hidden" name="currency_code" value="AED">
-              <input type="hidden" name="a3" value="5">
-              <input type="hidden" name="p3" value="1">
-              <input type="hidden" name="t3" value="M">
-              <input type="hidden" name="src" value="1">
-              <input type="hidden" name="sra" value="1">
-              <input type="hidden" name="no_note" value="1">
-              <input type="hidden" name="return" value="https://yourwebsite.com/thank-you">
-              <input type="hidden" name="cancel_return" value="https://yourwebsite.com/cancel">
-              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_SM.gif" border="0" name="submit" alt="Subscribe">
-              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-            </form>
+
+  <div class="container mt-5">
+    <!-- Tabs Navigation -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="about-tab" data-bs-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true">About</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="commitment-tab" data-bs-toggle="tab" href="#commitment" role="tab" aria-controls="commitment" aria-selected="false">Our Commitment</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="how-it-works-tab" data-bs-toggle="tab" href="#how-it-works" role="tab" aria-controls="how-it-works" aria-selected="false">How It Works</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="submit-waste-tab" data-bs-toggle="tab" href="#submit-waste" role="tab" aria-controls="submit-waste" aria-selected="false">Submit Your Waste</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="subscription-plans-tab" data-bs-toggle="tab" href="#subscription-plans" role="tab" aria-controls="subscription-plans" aria-selected="false">Subscription Plans</a>
+      </li>
+    </ul>
+
+    <!-- Tab Contents -->
+    <div class="tab-content" id="myTabContent">
+      <!-- About Tab -->
+      <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
+        <h2>About RecycAI</h2>
+        <p>RecycAI is an innovative platform that uses artificial intelligence to guide users on how to recycle various types of waste, turning them into useful items. Our goal is to encourage sustainability and reduce environmental impact by providing easy and effective recycling solutions to individuals and businesses alike.</p>
+      </div>
+
+      <!-- Our Commitment Tab -->
+      <div class="tab-pane fade" id="commitment" role="tabpanel" aria-labelledby="commitment-tab">
+        <h2>Our Commitment</h2>
+        <p>We are committed to making the world a cleaner and greener place. RecycAI helps people understand how to responsibly dispose of or repurpose waste materials. Through our service, we aim to promote sustainability, reduce landfill waste, and encourage individuals to adopt eco-friendly practices. Together, we can make a significant difference in the fight against climate change.</p>
+      </div>
+
+      <!-- How It Works Tab -->
+      <div class="tab-pane fade" id="how-it-works" role="tabpanel" aria-labelledby="how-it-works-tab">
+        <h2>How It Works</h2>
+        <p>RecycAI utilizes AI and image recognition technology to analyze your waste. Simply upload a photo of your waste or type in the materials, and our system will provide you with step-by-step recycling instructions. Whether it's plastic, paper, or electronics, RecycAI helps you make the right choices for sustainable disposal or reuse of your waste.</p>
+      </div>
+
+      <!-- Submit Your Waste Tab -->
+      <div class="tab-pane fade" id="submit-waste" role="tabpanel" aria-labelledby="submit-waste-tab">
+        <h2>Submit Your Waste</h2>
+        <form id="waste-form">
+          <div class="mb-3">
+            <label for="waste-image" class="form-label">Upload an image of your waste:</label>
+            <input type="file" class="form-control" id="waste-image" name="waste-image" accept="image/*" />
           </div>
-        </div>
-        <div class="col-md-3">
-          <div class="subscription-plan">
-            <h3>3 Months</h3>
-            <p>19 AED every 3 months</p>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input type="hidden" name="cmd" value="_xclick-subscriptions">
-              <input type="hidden" name="business" value="your-paypal-email@example.com">
-              <input type="hidden" name="item_name" value="RecycAI 3-Month Subscription">
-              <input type="hidden" name="currency_code" value="AED">
-              <input type="hidden" name="a3" value="19">
-              <input type="hidden" name="p3" value="3">
-              <input type="hidden" name="t3" value="M">
-              <input type="hidden" name="src" value="1">
-              <input type="hidden" name="sra" value="1">
-              <input type="hidden" name="no_note" value="1">
-              <input type="hidden" name="return" value="https://yourwebsite.com/thank-you">
-              <input type="hidden" name="cancel_return" value="https://yourwebsite.com/cancel">
-              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_SM.gif" border="0" name="submit" alt="Subscribe">
-              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-            </form>
+          <div class="mb-3">
+            <label for="waste-description" class="form-label">Or describe your waste material:</label>
+            <input type="text" class="form-control" id="waste-description" name="waste-description" placeholder="e.g., plastic bottles, cardboard boxes" />
           </div>
-        </div>
-        <div class="col-md-3">
-          <div class="subscription-plan">
-            <h3>6 Months</h3>
-            <p>29 AED every 6 months</p>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input type="hidden" name="cmd" value="_xclick-subscriptions">
-              <input type="hidden" name="business" value="your-paypal-email@example.com">
-              <input type="hidden" name="item_name" value="RecycAI 6-Month Subscription">
-              <input type="hidden" name="currency_code" value="AED">
-              <input type="hidden" name="a3" value="29">
-              <input type="hidden" name="p3" value="6">
-              <input type="hidden" name="t3" value="M">
-              <input type="hidden" name="src" value="1">
-              <input type="hidden" name="sra" value="1">
-              <input type="hidden" name="no_note" value="1">
-              <input type="hidden" name="return" value="https://yourwebsite.com/thank-you">
-              <input type="hidden" name="cancel_return" value="https://yourwebsite.com/cancel">
-              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_SM.gif" border="0" name="submit" alt="Subscribe">
-              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-            </form>
+          <button type="submit" class="btn btn-success">Get Recycling Instructions</button>
+        </form>
+      </div>
+
+      <!-- Subscription Plans Tab -->
+      <div class="tab-pane fade" id="subscription-plans" role="tabpanel" aria-labelledby="subscription-plans-tab">
+        <h2>Subscription Plans</h2>
+        <p>Start with a 7-day free trial, then choose a plan that suits you:</p>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="subscription-plan">
+              <h3>Monthly</h3>
+              <p>5 AED per month</p>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_xclick-subscriptions">
+                <input type="hidden" name="business" value="your-paypal-email@example.com">
+                <input type="hidden" name="item_name" value="RecycAI Monthly Subscription">
+                <input type="hidden" name="currency_code" value="AED">
+                <input type="hidden" name="a3" value="5">
+                <input type="hidden" name="p3" value="1">
+                <input type="hidden" name="t3" value="M">
+                <input type="hidden" name="src" value="1">
+                <input type="hidden" name="sra" value="1">
+                <input type="hidden" name="no_note" value="1">
+                <input type="hidden" name="return" value="https://yourwebsite.com/thank-you">
+                <input type="hidden" name="cancel_return" value="https://yourwebsite.com/cancel">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_SM.gif" border="0" name="submit" alt="Subscribe">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              </form>
+            </div>
           </div>
-        </div>
-        <div class="col-md-3">
-          <div class="subscription-plan">
-            <h3>Yearly</h3>
-            <p>49 AED per year</p>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input type="hidden" name="cmd" value="_xclick-subscriptions">
-              <input type="hidden" name="business" value="your-paypal-email@example.com">
-              <input type="hidden" name="item_name" value="RecycAI Yearly Subscription">
-              <input type="hidden" name="currency_code" value="AED">
-              <input type="hidden" name="a3" value="49">
-              <input type="hidden" name="p3" value="1">
-              <input type="hidden" name="t3" value="Y">
-              <input type="hidden" name="src" value="1">
-              <input type="hidden" name="sra" value="1">
-              <input type="hidden" name="no_note" value="1">
-              <input type="hidden" name="return" value="https://yourwebsite.com/thank-you">
-              <input type="hidden" name="cancel_return" value="https://yourwebsite.com/cancel">
-              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_SM.gif" border="0" name="submit" alt="Subscribe">
-              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-            </form>
+          <div class="col-md-3">
+            <div class="subscription-plan">
+              <h3>3 Months</h3>
+              <p>19 AED every 3 months</p>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_xclick-subscriptions">
+                <input type="hidden" name="business" value="your-paypal-email@example.com">
+                <input type="hidden" name="item_name" value="RecycAI 3-Month Subscription">
+                <input type="hidden" name="currency_code" value="AED">
+                <input type="hidden" name="a3" value="19">
+                <input type="hidden" name="p3" value="3">
+                <input type="hidden" name="t3" value="M">
+                <input type="hidden" name="src" value="1">
+                <input type="hidden" name="sra" value="1">
+                <input type="hidden" name="no_note" value="1">
+                <input type="hidden" name="return" value="https://yourwebsite.com/thank-you">
+                <input type="hidden" name="cancel_return" value="https://yourwebsite.com/cancel">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_SM.gif" border="0" name="submit" alt="Subscribe">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              </form>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="subscription-plan">
+              <h3>6 Months</h3>
+              <p>29 AED every 6 months</p>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_xclick-subscriptions">
+                <input type="hidden" name="business" value="your-paypal-email@example.com">
+                <input type="hidden" name="item_name" value="RecycAI 6-Month Subscription">
+                <input type="hidden" name="currency_code" value="AED">
+                <input type="hidden" name="a3" value="29">
+                <input type="hidden" name="p3" value="6">
+                <input type="hidden" name="t3" value="M">
+                <input type="hidden" name="src" value="1">
+                <input type="hidden" name="sra" value="1">
+                <input type="hidden" name="no_note" value="1">
+                <input type="hidden" name="return" value="https://yourwebsite.com/thank-you">
+                <input type="hidden" name="cancel_return" value="https://yourwebsite.com/cancel">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_SM.gif" border="0" name="submit" alt="Subscribe">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              </form>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="subscription-plan">
+              <h3>Yearly</h3>
+              <p>49 AED per year</p>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_xclick-subscriptions">
+                <input type="hidden" name="business" value="your-paypal-email@example.com">
+                <input type="hidden" name="item_name" value="RecycAI Yearly Subscription">
+                <input type="hidden" name="currency_code" value="AED">
+                <input type="hidden" name="a3" value="49">
+                <input type="hidden" name="p3" value="1">
+                <input type="hidden" name="t3" value="Y">
+                <input type="hidden" name="src" value="1">
+                <input type="hidden" name="sra" value="1">
+                <input type="hidden" name="no_note" value="1">
+                <input type="hidden" name="return" value="https://yourwebsite.com/thank-you">
+                <input type="hidden" name="cancel_return" value="https://yourwebsite.com/cancel">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_SM.gif" border="0" name="submit" alt="Subscribe">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
+
   <footer>
     <p>&copy; 2025 RecycAI. All rights reserved.</p>
   </footer>
